@@ -126,6 +126,8 @@ bool no_js_tests = false;
 
 bool no_scv_correction = false;
 
+int num_null_ratio_samples = 10000; //LAG 5-4-2015
+
 double min_outlier_p = 0.0001;
 
 

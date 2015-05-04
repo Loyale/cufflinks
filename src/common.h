@@ -135,6 +135,8 @@ extern bool no_js_tests;
 
 extern bool no_scv_correction;
 
+extern int num_null_ratio_samples; //LAG 5-4-2015
+
 extern double min_outlier_p;
 
 
@@ -862,4 +864,5 @@ std::string cat_strings(const T& container, const char* delimiter=",")
 #define OPT_NORM_STANDARDS_FILE     318
 #define OPT_USE_SAMPLE_SHEET        319
 #define OPT_OUTPUT_FORMAT           320
+#define OPT_NUM_NULL_RATIO_TESTS    321 //LAG 5-4-2015
 #endif

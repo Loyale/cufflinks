@@ -100,6 +100,7 @@ static struct option long_options[] = {
 {"no-diff",                 no_argument,	 		 0,	         OPT_NO_DIFF},
 {"num-frag-count-draws",	required_argument,		 0,			 OPT_NUM_FRAG_COUNT_DRAWS},
 {"num-frag-assign-draws",	required_argument,		 0,			 OPT_NUM_FRAG_ASSIGN_DRAWS},
+{"num-null-ratio-tests",    required_argument,       0,          OPT_NUM_NULL_RATIO_TESTS},
     
 // Some options for testing different stats policies
 {"max-bundle-frags",        required_argument,       0,          OPT_MAX_FRAGS_PER_BUNDLE}, 
@@ -162,6 +163,7 @@ void print_usage()
     fprintf(stderr, "  --max-bundle-frags           maximum fragments allowed in a bundle before skipping [ default: 500000 ]\n");
     fprintf(stderr, "  --num-frag-count-draws       Number of fragment generation samples                 [ default:    100 ]\n");
     fprintf(stderr, "  --num-frag-assign-draws      Number of fragment assignment samples per generation  [ default:     50 ]\n");
+    fprintf(stderr, "  --num-null-ratio-tests      Number of null ratio tests for significance            [ default:  10000 ]\n");
     fprintf(stderr, "  --max-frag-multihits         Maximum number of alignments allowed per fragment     [ default: unlim  ]\n");
     fprintf(stderr, "  --min-outlier-p              Min replicate p value to admit for testing            [    DEPRECATED   ]\n");
     fprintf(stderr, "  --min-reps-for-js-test       Replicates needed for relative isoform shift testing  [ default:      3 ]\n");
@@ -440,6 +442,11 @@ int parse_options(int argc, char** argv)
             case OPT_NUM_FRAG_ASSIGN_DRAWS:
             {
                 num_frag_assignments = parseInt(1, "--num-frag-assign-draws must be at least 1", print_usage);
+                break;
+            }
+            case OPT_NUM_NULL_RATIO_TESTS:
+            {
+                num_null_ratio_samples = parseInt(1, "--num-null-ratio-tests must be at least 1", print_usage);
                 break;
             }
             case OPT_FRAG_MAX_MULTIHITS:

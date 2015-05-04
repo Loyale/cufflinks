@@ -278,7 +278,7 @@ SampleDifference test_diffexp(const FPKMContext& curr,
     
     vector<double> null_log_ratio_samples;
     
-    static const size_t num_null_ratio_samples = 10000;
+    //static const size_t num_null_ratio_samples = 10000; //LAG 5-4-2015
     
     boost::random::mt19937 rng;
     
